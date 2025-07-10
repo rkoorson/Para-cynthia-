@@ -43,13 +43,13 @@ body{
 .greetings > span{
     animation: glow 2.5s ease-in-out infinite;
 }
-@keyframes glow{
-    0%, 100%{
-        color: #fff;
-        text-shadow: 0 0 12px #9b59b6, 0 0 50px #9b59b6, 0 0 100px #9b59b6;
+@keyframes glow {
+    0%, 100% {
+        color: #ff69b4; /* Rosa */
+        text-shadow: 0 0 12px #ff69b4, 0 0 50px #e84393, 0 0 100px #fd79a8; /* Brillo degradado */
     }
-    10%, 90%{
-        color: #111;
+    10%, 90% {
+        color: #333; /* Gris oscuro cuando no brilla */
         text-shadow: none;
     }
 }
