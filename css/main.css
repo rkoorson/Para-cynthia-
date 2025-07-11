@@ -56,20 +56,6 @@ body {
   text-shadow: 0 0 5px rgba(0,0,0,0.8); /* Sombra para mejor legibilidad */
   pointer-events: none; /* Permite interactuar con elementos debajo */
 }
-/* Estilo para el mensaje "Haz clic..." (Paso 3) */
-.titulo small {
-  display: block;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 10px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
-}
 
 @media only screen and (max-width: 600px) {
   .titulo {
