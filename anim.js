@@ -1,16 +1,35 @@
-// Espera a que el DOM esté listo
 document.addEventListener("DOMContentLoaded", function() {
   const audio = document.getElementById("backgroundMusic");
-  const body = document.body;
-  
-  // Reproduce la música al hacer clic en cualquier parte de la pantalla
-  body.addEventListener("click", function() {
-    audio.play()
-      .then(() => console.log("Música iniciada"))
-      .catch(error => console.error("Error al reproducir:", error));
+  const musicButton = document.getElementById("musicButton");
+  const titulo = document.querySelector(".titulo");
+
+  // Agrega el mensaje de "Haz clic..." solo si no existe
+  if (!titulo.querySelector("small")) {
+    const clickMessage = document.createElement("small");
+    clickMessage.textContent = "Haz clic en el botón para activar la música";
+    titulo.appendChild(clickMessage);
+  }
+
+  // Controlador del botón de música
+  musicButton.addEventListener("click", function() {
+    if (audio.paused) {
+      audio.play()
+        .then(() => {
+          musicButton.classList.add("playing");
+          // Oculta el mensaje al reproducir
+          const clickMessage = titulo.querySelector("small");
+          if (clickMessage) clickMessage.style.display = "none";
+        })
+        .catch(error => console.error("Error al reproducir:", error));
+    } else {
+      audio.pause();
+      musicButton.classList.remove("playing");
+    }
   });
 
-  // Opcional: Mensaje para el usuario (puedes personalizarlo)
-  const titulo = document.querySelector(".titulo");
-  titulo.innerHTML += "<br><small>(".click_mp3")</small>";
+  // Ocultar título después de 3 minutos
+  setTimeout(function() {
+    titulo.style.animation = "fadeOut 3s ease-in-out forwards";
+    setTimeout(() => titulo.style.display = "none", 3000);
+  }, 180000);
 });
