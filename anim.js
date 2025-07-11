@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Opcional: Mensaje para el usuario (puedes personalizarlo)
   const titulo = document.querySelector(".titulo");
-  titulo.innerHTML += "<br><small>(Haz clic en cualquier parte para activar la música)</small>";
+  titulo.innerHTML += "<br><small>play</small>";
 });
